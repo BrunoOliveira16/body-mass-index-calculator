@@ -3,16 +3,16 @@ import theme from '../../theme'
 
 export const S = {
   Hero: styled.header`
+    width: 100%;
+    padding: 0 140px 0 24px;
+    position: relative;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  `,
+  HeroContainer: styled.div`
     max-width: 978px;
     padding: 75px 298px 200px 116px;
     border-radius: 0px 0px 35px 35px;
     background: ${theme.gradients.gradient1};
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  `,
-  Logo: styled.img`
-    width: 64px;
-    height: 64px;
-    margin-bottom: 127px;
   `,
   Content: styled.div`
     display: flex;
@@ -20,6 +20,17 @@ export const S = {
     flex-direction: column;
     align-items: flex-start;
     gap: 35px;
+  `,
+  ContainerForm: styled.div`
+    max-width: 564px;
+    position: absolute;
+    top: 167px;
+    right: 140px;
+  `,
+  Logo: styled.img`
+    width: 64px;
+    height: 64px;
+    margin-bottom: 127px;
   `,
   Title: styled.h1`
     color: ${theme.colors.gunmetal};
