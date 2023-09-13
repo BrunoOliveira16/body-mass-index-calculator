@@ -1,10 +1,19 @@
-import GlobalStyle from './globalStyle'
+import BmiLimitations from './containers/BmiLimitations'
+import Hero from './containers/Hero'
+import Tips from './containers/Tips'
+import YourResults from './containers/YourResult'
+import GlobalStyle, { Container } from './globalStyle'
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      Teste
+      <Container>
+        <Hero />
+        <YourResults />
+        <Tips />
+        <BmiLimitations />
+      </Container>
     </>
   )
 }
