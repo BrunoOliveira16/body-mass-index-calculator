@@ -2,6 +2,7 @@ export default {
   colors: {
     blue: '#345FF6',
     blue15: 'rgba(52, 95, 246, 0.15)',
+    blueBg: '#e7f5fe',
     gunmetal: '#253347',
     darkElectricBlue: '#5E6E85',
     borders: '#D8E2E7',
