@@ -3,7 +3,9 @@ import theme from '../../theme'
 
 export const S = {
   Wrapper: styled.div`
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   `,
   InputContainer: styled.div`
     width: 100%;
@@ -37,6 +39,10 @@ export const S = {
 
     &:focus {
       outline: none;
+    }
+
+    &::placeholder {
+      opacity: 0.25;
     }
   `,
   Unit: styled.span`
