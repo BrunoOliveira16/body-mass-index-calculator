@@ -39,6 +39,29 @@ export const S = {
     background: ${theme.gradients.gradient2};
     color: ${theme.colors.pureWhite};
   `,
+  Welcome: styled.div`
+    width: 100%;
+    color: ${theme.colors.pureWhite};
+
+    h3 {
+      margin-bottom: 16px;
+
+      /* Heading M */
+      font-family: 'Inter Regular', sans-serif;
+      font-size: ${theme.fontSizes.headingM};
+      font-weight: 600;
+      line-height: normal;
+      letter-spacing: -1.2px;
+    }
+
+    p {
+      /* Body S */
+      font-family: 'Inter Regular', sans-serif;
+      font-size: ${theme.fontSizes.bodyS};
+      font-weight: 400;
+      line-height: ${theme.lineHeight.body}; /* 21px */
+    }
+  `,
   Result: styled.div`
     width: 50%;
     display: flex;
