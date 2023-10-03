@@ -1,53 +1,64 @@
+import useImperialBMI from '../../../hooks/useImperialBMI'
+import { useBMIContext, BMIContextType } from '../../../context/BMIContext'
 import Input from '../../Input'
 import { S } from '../styles'
 
-type FormMetersProps = {
-  height: number | ''
-  weight: number | ''
-  setHeight: (height: number | '') => void
-  setWeight: (weight: number | '') => void
-}
+const FormImperial = () => {
+  const {
+    heightImperial,
+    weightImperial,
+    setHeightImperial,
+    setWeightImperial
+  } = useBMIContext() as BMIContextType
 
-const FormImperial = ({
-  height,
-  weight,
-  setHeight,
-  setWeight
-}: FormMetersProps) => {
+  useImperialBMI()
+
+  // Método para lidar com a mudança nos inputs de altura
+  const handleHeightFtChange = (ft: number) => {
+    setHeightImperial({ ...heightImperial, ft: ft })
+  }
+  const handleHeightInChange = (inch: number) => {
+    setHeightImperial({ ...heightImperial, in: inch })
+  }
+
+  // Método para lidar com a mudança nos inputs de peso
+  const handleWeightStChange = (st: number) => {
+    setWeightImperial({ ...weightImperial, st: st })
+  }
+  const handleWeightLbsChange = (lbs: number) => {
+    setWeightImperial({ ...weightImperial, lbs: lbs })
+  }
+
   return (
     <>
       <S.Container>
         <Input
-          inputType="number"
           label="Altura"
           unit="ft"
           placeholder="0"
-          value={height}
-          setValue={setHeight}
+          value={heightImperial.ft}
+          setValue={handleHeightFtChange}
         />
         <Input
-          inputType="number"
           unit="in"
           placeholder="0"
-          value={weight}
-          setValue={setWeight}
+          value={heightImperial.in}
+          setValue={handleHeightInChange}
         />
       </S.Container>
       <S.Container>
         <Input
-          inputType="number"
           label="Peso"
           unit="st"
           placeholder="0"
-          value={height}
-          setValue={setHeight}
+          value={weightImperial.st}
+          setValue={handleWeightStChange}
         />
         <Input
-          inputType="number"
           unit="lbs"
           placeholder="0"
-          value={weight}
-          setValue={setWeight}
+          value={weightImperial.lbs}
+          setValue={handleWeightLbsChange}
         />
       </S.Container>
     </>
