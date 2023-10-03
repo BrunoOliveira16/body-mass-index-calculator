@@ -4,25 +4,17 @@ type PropsInput = {
   label?: string
   unit?: string
   placeholder?: string
-  inputType: string
-  value: number | ''
-  setValue: (value: number | '') => void
+  value: number
+  setValue: (value: number) => void
 }
 
-const Input = ({
-  label,
-  unit,
-  placeholder,
-  inputType,
-  value,
-  setValue
-}: PropsInput) => {
+const Input = ({ label, unit, placeholder, value, setValue }: PropsInput) => {
   return (
     <S.Wrapper>
       <S.Label>{label}</S.Label>
       <S.InputContainer>
         <S.Input
-          type={inputType}
+          type="number"
           title={label}
           placeholder={placeholder}
           value={value}
