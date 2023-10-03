@@ -1,53 +1,24 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { useBMIContext, BMIContextType } from '../../context/BMIContext'
 import InputRadio from '../InputRadio'
 import FormMeters from './FormMeters'
 import FormImperial from './FormImperial'
 import { S } from './styles'
 
 const Form = () => {
-  const [unit, setUnit] = useState('meters')
-  const [height, setHeight] = useState<number | ''>('')
-  const [weight, setWeight] = useState<number | ''>('')
-  const [resultBMI, setResultBMI] = useState<number>(0)
-  const [inputIsEmpty, setInputIsEmpty] = useState(true)
-
-  useEffect(() => {
-    const isEmpty =
-      height === '' || weight === '' || height === 0 || weight === 0
-    setInputIsEmpty(isEmpty)
-
-    if (!isEmpty) {
-      const isValidNumber = !isNaN(height as number) && !isNaN(weight as number)
-
-      if (isValidNumber) {
-        const newResultBMI = calculateBMI(height as number, weight as number)
-        setResultBMI(newResultBMI)
-      } else {
-        setResultBMI(0)
-      }
-    }
-  }, [height, weight])
-
-  function calculateBMI(height: number, weight: number): number {
-    if (height === 0 || weight === 0) {
-      return 0
-    }
-
-    const heightInMeters = height / 100
-    const result = +(weight / (heightInMeters * heightInMeters)).toFixed(2)
-    return result
-  }
+  const [unit, setUnit] = useState('metric')
+  const { inputIsEmpty, resultBMI } = useBMIContext() as BMIContextType
 
   return (
     <S.Form>
       <S.TitleForm>Insira seus dados abaixo</S.TitleForm>
       <S.Container>
         <InputRadio
-          label="Metros"
+          label="Métrico"
           id="metros"
           name="unidade"
-          checked={unit === 'meters'}
-          onChange={() => setUnit('meters')}
+          checked={unit === 'metric'}
+          onChange={() => setUnit('metric')}
         />
         <InputRadio
           label="Imperial"
@@ -58,24 +29,10 @@ const Form = () => {
         />
       </S.Container>
 
-      {unit === 'meters' ? (
-        <FormMeters
-          height={height}
-          weight={weight}
-          setHeight={setHeight}
-          setWeight={setWeight}
-        />
-      ) : (
-        <FormImperial
-          height={height}
-          weight={weight}
-          setHeight={setHeight}
-          setWeight={setWeight}
-        />
-      )}
+      {unit === 'metric' ? <FormMeters /> : <FormImperial />}
 
       <S.ContainerResult>
-        {inputIsEmpty ? (
+        {inputIsEmpty || resultBMI === 0 ? (
           <S.Welcome>
             <h3>Bem Vindo!</h3>
             <p>
