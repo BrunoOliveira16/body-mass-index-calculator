@@ -1,36 +1,28 @@
+import useMetricBMI from '../../../hooks/useMetricBMI'
+import { useBMIContext, BMIContextType } from '../../../context/BMIContext'
 import Input from '../../Input'
 import { S } from '../styles'
 
-type FormMetersProps = {
-  height: number | ''
-  weight: number | ''
-  setHeight: (height: number | '') => void
-  setWeight: (weight: number | '') => void
-}
+const FormMeters = () => {
+  const { heightMetric, weightMetric, setHeightMetric, setWeightMetric } =
+    useBMIContext() as BMIContextType
+  useMetricBMI()
 
-const FormMeters = ({
-  height,
-  weight,
-  setHeight,
-  setWeight
-}: FormMetersProps) => {
   return (
     <S.Container>
       <Input
-        inputType="number"
         label="Altura"
         unit="cm"
         placeholder="0"
-        value={height}
-        setValue={setHeight}
+        value={heightMetric}
+        setValue={setHeightMetric}
       />
       <Input
-        inputType="number"
         label="Peso"
         unit="kg"
         placeholder="0"
-        value={weight}
-        setValue={setWeight}
+        value={weightMetric}
+        setValue={setWeightMetric}
       />
     </S.Container>
   )
