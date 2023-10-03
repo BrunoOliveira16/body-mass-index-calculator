@@ -43,7 +43,7 @@ const Form = () => {
           <>
             <S.Result>
               <p>Seu IMC é...</p>
-              <h3>{resultBMI}</h3>
+              <h3>{resultBMI.toFixed(1)}</h3>
             </S.Result>
             <S.ResultText>
               <p>
