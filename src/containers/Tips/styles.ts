@@ -5,6 +5,10 @@ export const S = {
   Section: styled.section`
     width: 100%;
     padding: 24px;
+
+    @media screen and (max-width: ${theme.breakpoints.mobile}) {
+      padding: 0;
+    }
   `,
   ContainerCards: styled.div`
     display: grid;
@@ -13,6 +17,14 @@ export const S = {
     border-radius: 35px;
     background: ${theme.gradients.gradient1};
     padding: 72px 116px 96px;
+
+    @media screen and (max-width: ${theme.breakpoints.mobile}) {
+      grid-template-columns: 1fr;
+      row-gap: 40px;
+      padding: 56px 20px;
+      border-radius: 0;
+      background: rgba(214, 230, 254, 0.25);
+    }
   `,
   Title: styled.h3`
     color: ${theme.colors.gunmetal};

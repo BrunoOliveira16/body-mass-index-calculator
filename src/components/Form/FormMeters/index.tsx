@@ -2,6 +2,7 @@ import useMetricBMI from '../../../hooks/useMetricBMI'
 import { useBMIContext, BMIContextType } from '../../../context/BMIContext'
 import { categoryMetricBMI } from '../../../utils/categoryBMI'
 import Input from '../../Input'
+import { ContainerForm } from './styles'
 import { S } from '../styles'
 
 const FormMeters = () => {
@@ -28,7 +29,7 @@ const FormMeters = () => {
 
   return (
     <>
-      <S.Container>
+      <ContainerForm>
         <Input
           label="Altura"
           unit="cm"
@@ -43,7 +44,7 @@ const FormMeters = () => {
           value={weightMetric}
           setValue={setWeightMetric}
         />
-      </S.Container>
+      </ContainerForm>
       <S.ContainerResult>
         {inputIsEmpty || resultBMI === 0 ? (
           <S.Welcome>

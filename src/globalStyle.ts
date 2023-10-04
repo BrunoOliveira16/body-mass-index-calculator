@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components'
+import theme from './theme'
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -27,4 +28,10 @@ export const Container = styled.main`
   max-width: 1440px;
   width: 100%;
   margin: 0 auto;
+
+  @media screen and (max-width: ${theme.breakpoints.mobile}) {
+    display: flex;
+    flex-direction: column;
+    gap: 72px;
+  }
 `

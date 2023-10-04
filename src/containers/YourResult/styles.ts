@@ -1,6 +1,18 @@
 import styled from 'styled-components'
 import theme from '../../theme'
 
+const Content = styled.div`
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  aligns-items: center;
+
+  @media screen and (max-width: ${theme.breakpoints.mobile}) {
+    width: 100%;
+  }
+`
+
 export const S = {
   Section: styled.section`
     display: flex;
@@ -9,18 +21,28 @@ export const S = {
     gap: 131px;
     width: 1160px;
     margin: 65px auto;
+
+    @media screen and (max-width: ${theme.breakpoints.mobile}) {
+      flex-direction: column;
+      gap: 48px;
+      width: 100%;
+      margin: 0 auto;
+    }
   `,
-  Content: styled.div`
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    aligns-items: center;
+  Content,
+  ContentWithPadding: styled(Content)`
+    @media screen and (max-width: ${theme.breakpoints.mobile}) {
+      padding: 0 24px;
+    }
   `,
   BoxImage: styled.div`
     width: 564px;
 
     img {
+      width: 100%;
+    }
+
+    @media screen and (max-width: ${theme.breakpoints.mobile}) {
       width: 100%;
     }
   `,
@@ -34,6 +56,12 @@ export const S = {
     line-height: ${theme.lineHeight.heading}; /* 52.8px */
     letter-spacing: -2.4px;
     margin-bottom: 35px;
+
+    @media screen and (max-width: ${theme.breakpoints.mobile}) {
+      font-size: ${theme.fontSizes.headingMobileL};
+      letter-spacing: -1.6px;
+      margin-bottom: 32px;
+    }
   `,
   Text: styled.p`
     color: ${theme.colors.darkElectricBlue};

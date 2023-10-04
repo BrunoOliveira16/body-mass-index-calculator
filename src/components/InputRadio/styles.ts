@@ -6,6 +6,10 @@ export const S = {
     display: flex;
     align-items: center;
     width: 238px;
+
+    @media screen and (max-width: ${theme.breakpoints.mobile}) {
+      width: 100%;
+    }
   `,
   Input: styled.input`
     appearance: none;

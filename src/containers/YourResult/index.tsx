@@ -9,7 +9,7 @@ const YourResults = () => {
           <img src={Person} alt="imagem de um homen comendo" />
         </S.BoxImage>
       </S.Content>
-      <S.Content>
+      <S.ContentWithPadding>
         <S.Title>O que significa o seu resultado de IMC</S.Title>
         <S.Text>
           Uma faixa de IMC de 18,5 a 24,9 é considerada um “peso saudável”.
@@ -20,7 +20,7 @@ const YourResults = () => {
           física regular, de preferência cerca de 30 minutos diários, cinco dias
           por semana.
         </S.Text>
-      </S.Content>
+      </S.ContentWithPadding>
     </S.Section>
   )
 }

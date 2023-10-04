@@ -16,6 +16,7 @@ export default {
   fontSizes: {
     headingXL: '64px',
     headingL: '48px',
+    headingMobileL: '32px',
     headingM: '24px',
     headingS: '20px',
     bodyM: '16px',
@@ -24,5 +25,9 @@ export default {
   lineHeight: {
     heading: '110%',
     body: '150%'
+  },
+  breakpoints: {
+    mobile: '690px',
+    tablet: '1023px'
   }
 }
