@@ -28,6 +28,6 @@ export default {
   },
   breakpoints: {
     mobile: '690px',
-    tablet: '1023px'
+    tablet: '1079px'
   }
 }

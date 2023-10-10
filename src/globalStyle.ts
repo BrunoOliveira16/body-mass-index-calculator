@@ -26,6 +26,7 @@ export default GlobalStyle
 
 export const Container = styled.main`
   max-width: 1440px;
+  min-width: 375px;
   width: 100%;
   margin: 0 auto;
 

@@ -1,45 +1,41 @@
 import styled from 'styled-components'
 import theme from '../../theme'
 
-type ContainerProps = {
-  justifyContent?: string
+type CardProps = {
+  cardIndex: number
 }
 
 export const S = {
   Section: styled.section`
-    width: 100%;
+    max-width: 1160px;
+    width: 95%;
     margin: 0 auto;
-    padding: 120px 140px;
+    padding: 120px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+
+    @media screen and (max-width: ${theme.breakpoints.tablet}) {
+      width: 100%;
+      padding: 96px 39px;
+      justify-content: center;
+    }
 
     @media screen and (max-width: ${theme.breakpoints.mobile}) {
       padding: 0 20px 96px;
     }
   `,
-  Container: styled.div<ContainerProps>`
-    width: 100%;
-    display: flex;
-    justify-content: ${(props) => props.justifyContent || 'flex-start'};
-    gap: 32px;
-    margin-bottom: 32px;
-
-    @media screen and (max-width: ${theme.breakpoints.mobile}) {
-      flex-direction: column;
-      justify-content: center;
-      margin-bottom: 16px;
-      gap: 16px;
-    }
-  `,
   ContainerText: styled.div`
-    max-width: 564px;
+    max-width: 50%;
     width: 100%;
-    margin-right: 100px;
 
-    @media screen and (max-width: ${theme.breakpoints.mobile}) {
+    @media screen and (max-width: ${theme.breakpoints.tablet}) {
+      max-width: 100%;
       text-align: center;
-      margin-bottom: 40px;
+      margin: 0 auto 40px;
     }
   `,
-  Card: styled.div`
+  Card: styled.div<CardProps>`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -49,6 +45,21 @@ export const S = {
     border-radius: 16px;
     background: ${theme.colors.pureWhite};
     box-shadow: 16px 32px 56px 0px rgba(143, 174, 207, 0.25);
+
+    margin: ${(props) => {
+      if (props.cardIndex === 1) {
+        return '0 50px'
+      } else if (props.cardIndex === 2) {
+        return '0 0 0 auto'
+      } else if (props.cardIndex === 4) {
+        return '0 0 0 200px'
+      }
+    }};
+
+    @media screen and (max-width: ${theme.breakpoints.tablet}) {
+      max-width: 300px;
+      margin: 0;
+    }
 
     @media screen and (max-width: ${theme.breakpoints.mobile}) {
       max-width: 100%;

@@ -6,7 +6,7 @@ export const S = {
     width: 100%;
     padding: 24px;
 
-    @media screen and (max-width: ${theme.breakpoints.mobile}) {
+    @media screen and (max-width: ${theme.breakpoints.tablet}) {
       padding: 0;
     }
   `,
@@ -18,12 +18,16 @@ export const S = {
     background: ${theme.gradients.gradient1};
     padding: 72px 116px 96px;
 
-    @media screen and (max-width: ${theme.breakpoints.mobile}) {
+    @media screen and (max-width: ${theme.breakpoints.tablet}) {
       grid-template-columns: 1fr;
       row-gap: 40px;
-      padding: 56px 20px;
+      padding: 56px 39px;
       border-radius: 0;
       background: rgba(214, 230, 254, 0.25);
+    }
+
+    @media screen and (max-width: ${theme.breakpoints.mobile}) {
+      padding: 56px 20px;
     }
   `,
   Title: styled.h3`

@@ -19,13 +19,22 @@ export const S = {
     justify-content: center;
     aligns-items: center;
     gap: 131px;
-    width: 1160px;
+    max-width: 1160px;
+    width: 100%;
     margin: 65px auto;
+
+    @media screen and (max-width: 1180px) {
+      max-width: 100%;
+      width: 95%;
+    }
+
+    @media screen and (max-width: ${theme.breakpoints.tablet}) {
+      gap: 48px;
+      width: 100%;
+    }
 
     @media screen and (max-width: ${theme.breakpoints.mobile}) {
       flex-direction: column;
-      gap: 48px;
-      width: 100%;
       margin: 0 auto;
     }
   `,
@@ -42,7 +51,7 @@ export const S = {
       width: 100%;
     }
 
-    @media screen and (max-width: ${theme.breakpoints.mobile}) {
+    @media screen and (max-width: ${theme.breakpoints.tablet}) {
       width: 100%;
     }
   `,
@@ -57,7 +66,7 @@ export const S = {
     letter-spacing: -2.4px;
     margin-bottom: 35px;
 
-    @media screen and (max-width: ${theme.breakpoints.mobile}) {
+    @media screen and (max-width: ${theme.breakpoints.tablet}) {
       font-size: ${theme.fontSizes.headingMobileL};
       letter-spacing: -1.6px;
       margin-bottom: 32px;
